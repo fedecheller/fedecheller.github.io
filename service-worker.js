@@ -19,3 +19,30 @@ this.addEventListener('install', event => {
     })
   );
 });
+
+
+this.addEventListener('fetch', event => {
+  // request.mode = navigate isn't supported in all browsers
+  // so include a check for Accept: text/html header.
+  console.log('fetch');
+  if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
+          console.log('navigate');
+	  event.respondWith(
+          fetch(event.request.url).catch(error => {
+              // Return the offline page
+		  console.log('offline');
+              return caches.match(offlineUrl);
+          })
+    );
+  }
+  else{
+	console.log('not navigate');
+        // Respond with everything else if we can
+        event.respondWith(caches.match(event.request)
+                        .then(function (response) {
+			console.log('response');
+                        return response || fetch(event.request);
+                    })
+            );
+      }
+});
