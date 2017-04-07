@@ -11,6 +11,9 @@ this.addEventListener('install', event => {
     caches.open(currentCache.offline).then(function(cache) {
       return cache.addAll([
           './launcher-icon-1x.png',
+		  './launcher-icon-2x.png',
+		  './launcher-icon-3x.png',
+		  './launcher-icon-4x.png',
           offlineUrl
       ]);
     })
