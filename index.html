@@ -1,25 +1,21 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="manifest" href="manifest.json" />
 	<meta charset="utf-8">
-	<title>mobile</title>
+	<title>cheller.info</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="apple-mobile-web-app-title" content="cheller.info">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="grey" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0" />
-	<meta name="msapplication-TileColor" content="#E1E1E1"/> 
+	<meta name="msapplication-TileColor" content="#E3E3E3"/> 
+	<meta name="msapplication-TileImage" content="launcher-icon-3x.png">	
 </head>
 
 <body>
-	BODY APPLICATION
-	<script>
-	if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-		console.log('ServiceWorker registration successful with scope: ', registration.scope);
-	}).catch(function(err) {
-			console.log('ServiceWorker registration failed: ', err);
-		});
-	}
-	</script>
+	CHELLER.INFO
+	<script src="app.js" async></script>
 </body>
 </html>

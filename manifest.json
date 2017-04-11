@@ -1,6 +1,6 @@
 {
-  "short_name": "Test app",
-  "name": "Application test",
+  "short_name": "cheller.info",
+  "name": "cheller web development",
   "icons": [
     {
       "src": "launcher-icon-1x.png",
@@ -26,6 +26,6 @@
   "start_url": "index.html?launcher=true",
   "display": "standalone",
   "orientation": "landscape",
-  "background_color": "#2196F3",
-  "theme_color": "#666666"
+  "background_color": "#E3E3E3",
+  "theme_color": "#E3E3E3"
 }
