@@ -4,7 +4,7 @@ var cacheVersion = 1;
 var currentCache = {
   offline: 'offline-cache' + cacheVersion
 };
-const offlineUrl = 'offline-page.html';
+const offlineUrl = 'index.html';
 
 this.addEventListener('install', event => {
   event.waitUntil(
@@ -14,6 +14,9 @@ this.addEventListener('install', event => {
 		  './launcher-icon-2x.png',
 		  './launcher-icon-3x.png',
 		  './launcher-icon-4x.png',
+		  './app.js',
+		  './style.css',
+		  './favicon.ico',
           offlineUrl
       ]);
     })
@@ -30,19 +33,19 @@ this.addEventListener('fetch', event => {
 	  event.respondWith(
           fetch(event.request.url).catch(error => {
               // Return the offline page
-		  console.log('offline');
+			  console.log('offline');
               return caches.match(offlineUrl);
           })
     );
   }
   else{
 	console.log('not navigate');
-        // Respond with everything else if we can
-        event.respondWith(caches.match(event.request)
-                        .then(function (response) {
+    // Respond with everything else if we can
+    event.respondWith(caches.match(event.request).then(
+		function (response) {
 			console.log('response');
-                        return response || fetch(event.request);
-                    })
-            );
-      }
+            return response || fetch(event.request);
+        })
+       );
+    }
 });
